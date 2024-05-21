@@ -20,6 +20,7 @@ import Table from "examples/Tables/Table";
 import { RoleTypes } from "../../Constant/enums/roleTypes";
 import { fetchUsersList } from "../../Redux/slices/exploreSlice";
 import team4 from "../../assets/images/team-4.jpg";
+import dummyUser from "../../assets/images/user-dummy.png";
 
 // icon
 import deleteIcon from "assets/images/icon-delete.svg";
@@ -105,7 +106,13 @@ function Users() {
   useEffect(() => {
     if (results.length > 0) {
       const finalRowData = results.map((item) => ({
-        user: <Author image={item.image.fileURL} name={item.fullname} email={item.email} />,
+        user: (
+          <Author
+            image={item?.image && item?.image?.fileURL ? item?.image?.fileURL : dummyUser}
+            name={item.fullname}
+            email={item.email}
+          />
+        ),
         subscribes: (
           <SoftTypography variant="button" fontWeight="medium">
             {item.subscribeTo.length}
