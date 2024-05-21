@@ -40,7 +40,6 @@ function SignIn() {
       .required("Password is required"),
   });
 
-  // Check local storage on component mount
   useEffect(() => {
     const rememberMeValue = localStorage.getItem("rememberMe");
     if (rememberMeValue) {
@@ -51,7 +50,6 @@ function SignIn() {
   const handleSetRememberMe = () => {
     const newValue = !rememberMe;
     setRememberMe(newValue);
-    // Store preference in local storage
     localStorage.setItem("rememberMe", String(newValue));
   };
 
@@ -59,25 +57,28 @@ function SignIn() {
     const { access, refresh } = data.data.tokens;
     common.updateToken(access.token, refresh.token);
     dispatch(updateUser(user));
-
     navigate("/dashboard");
-
     return `Welcome back ${user.fullname} !`;
   };
 
-  const handleLogin = (values) => {
+  const handleLogin = async (values, { setSubmitting, validateForm }) => {
+    const errors = await validateForm(values);
+    if (Object.keys(errors).length > 0) {
+      setSubmitting(false);
+      return;
+    }
+
     const promise = APIRequest(APIPATHS.login, values);
 
-    // creating new user
     toast.promise(promise, {
       loading: "Signing in...",
       success: (data) => {
         if (data.error) throw new Error(data.error.message);
-
         const user = data.data.user;
         return handlerUserAfterLogin(user, data);
       },
       error: (err) => {
+        setSubmitting(false);
         return err?.message || "";
       },
     });
@@ -93,8 +94,8 @@ function SignIn() {
       description="Enter your email and password to sign in"
       image={curved9}
     >
-      <Formik initialValues={formData} onSubmit={handleLogin} validationSchema={LoginpValidation}>
-        {({ values, errors, touched, handleChange, handleBlur, isSubmitting }) => (
+      <Formik initialValues={formData} validationSchema={LoginpValidation} onSubmit={handleLogin}>
+        {({ values, errors, touched, handleChange, handleBlur, isSubmitting, validateForm }) => (
           <Form>
             <SoftBox>
               <SoftBox mb={2}>
