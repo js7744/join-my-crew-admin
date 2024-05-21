@@ -46,7 +46,7 @@ function Users() {
     return (
       <SoftBox display="flex" alignItems="center" px={1} py={0.5}>
         <SoftBox mr={2}>
-          <SoftAvatar src={team4} alt={name} size="sm" variant="rounded" />
+          <SoftAvatar src={image ? image : dummyUser} alt={name} size="sm" variant="rounded" />
         </SoftBox>
         <SoftBox display="flex" flexDirection="column">
           <SoftTypography variant="button" fontWeight="medium">
