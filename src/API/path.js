@@ -7,7 +7,7 @@ const METHODS = {
 
 export const register = { url: "/auth/register", method: METHODS.POST };
 
-export const login = { url: "/auth/login", method: METHODS.POST };
+export const login = { url: "/auth/login-admin", method: METHODS.POST };
 
 export const updateUser = { url: "/users", method: METHODS.PATCH };
 
