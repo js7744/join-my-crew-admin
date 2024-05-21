@@ -34,6 +34,7 @@ import logoLink from "assets/images/small-logos/logo-link.svg";
 
 // icon
 import deleteIcon from "assets/images/icon-delete.svg";
+import dummyUser from "../../assets/images/user-dummy.png";
 
 function Creators() {
   const { loading, results } = useSelector((state) => state.explore);
@@ -145,7 +146,13 @@ function Creators() {
   useEffect(() => {
     if (results.length > 0) {
       const finalRowData = results.map((item) => ({
-        user: <Author image={item.image.fileURL} name={item.fullname} email={item.email} />,
+        user: (
+          <Author
+            image={item?.image && item?.image?.fileURL ? item?.image?.fileURL : dummyUser}
+            name={item.fullname}
+            email={item.email}
+          />
+        ),
         socialLinks: (
           <SoftBox display="flex" alignItems="center" px={1} py={0.5}>
             {item?.socialLinks?.facebook && (
