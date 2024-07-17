@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/static/js/main.86fdb829.js",
+    "static/media/curved14.jpg": "/static/media/curved14.12c9ea54425c4f1bc1d7.jpg",
+    "static/media/curved-6.jpg": "/static/media/curved-6.71ee1d1cc8196ed2126b.jpg",
+    "static/media/white-curved.jpeg": "/static/media/white-curved.a5b7db662b0b14ab5534.jpeg",
+    "static/media/visa.png": "/static/media/visa.71c0d5e9e2aaee42e4c3.png",
+    "static/media/user-dummy.png": "/static/media/user-dummy.6b675529dc36e944436c.png",
+    "static/media/mastercard.png": "/static/media/mastercard.27fca3e7637a9458fb64.png",
+    "static/media/team-4.jpg": "/static/media/team-4.a1e1c29f1b839ddae393.jpg",
+    "static/media/team-2.jpg": "/static/media/team-2.e725aef8c892cb21f262.jpg",
+    "static/media/logo-instagram.svg": "/static/media/logo-instagram.8e0c14d3a8985cf08494d68ee9d16d20.svg",
+    "static/media/logo-colored.svg": "/static/media/logo-colored.f56f35ddb0dee89e7a9e160f1a279160.svg",
+    "static/media/icon-delete.svg": "/static/media/icon-delete.cf9578d7bee99e6f1b9b2db6e368a536.svg",
+    "static/media/logo-link.svg": "/static/media/logo-link.0ffa7c1d6e958f2fab98aa3ed9ce8236.svg",
+    "static/media/logo-threads.svg": "/static/media/logo-threads.747c15d1b94a2481ed75d66e23bcfe85.svg",
+    "static/media/logo-spotify.svg": "/static/media/logo-spotify.e83cf56c9d99a1fdf59e8deb58bbe470.svg",
+    "static/media/logo-facebook.svg": "/static/media/logo-facebook.ff8a21a7175209695eca8af53a1edfdf.svg",
+    "index.html": "/index.html",
+    "static/media/logo-youtube.svg": "/static/media/logo-youtube.dd044bf8744fd318a9456b1fafa2e20b.svg"
+  },
+  "entrypoints": [
+    "static/js/main.86fdb829.js"
+  ]
+}
