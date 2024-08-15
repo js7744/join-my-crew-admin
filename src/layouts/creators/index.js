@@ -60,7 +60,13 @@ function Creators() {
     return (
       <SoftBox display="flex" alignItems="center" px={1} py={0.5}>
         <SoftBox mr={2}>
-          <SoftAvatar src={image ? image : dummyUser} alt={name} size="sm" variant="rounded" />
+          <SoftAvatar
+            src={image ? image : dummyUser}
+            alt={name}
+            size="sm"
+            variant="rounded"
+            crossOrigin="anonymous"
+          />
         </SoftBox>
         <SoftBox display="flex" flexDirection="column">
           <SoftTypography variant="button" fontWeight="medium">
@@ -277,14 +283,19 @@ function Creators() {
       </SoftBox>
       {isOpenAlertDialoge && (
         <AlertDialog
-          title="Approve creator?"
-          description="Are you sure you want to approve the creator?"
+          title={selectedUser.isApproved ? "Disapprove creator?" : "Approve creator?"}
+          description={
+            selectedUser.isApproved
+              ? "Are you sure you want to disapprove the creator?"
+              : "Are you sure you want to approve the creator?"
+          }
           agreeButtonText="Agree"
           disAgreeButtonText="Disagree"
           openDialog={isOpenAlertDialoge}
           handleClose={() => setIsOpenAlertDialoge(false)}
           handleAction={(isApproved) => handleApproveUnapprove(isApproved)}
           currentStatus={selectedUser.isApproved}
+          showClose={true}
         />
       )}
       {isOpenAlertDeleteDialoge && (
@@ -297,6 +308,7 @@ function Creators() {
           handleClose={() => setIsOpenAlertDeleteDialoge(false)}
           handleAction={(isAgree) => handleDelete(isAgree)}
           currentStatus={selectedUser.isDeleted}
+          showClose={false}
         />
       )}
     </DashboardLayout>

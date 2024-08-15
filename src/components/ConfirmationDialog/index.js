@@ -15,7 +15,8 @@ function AlertDialog({
   openDialog,
   handleClose,
   handleAction,
-  currentStatus
+  currentStatus,
+  showClose
 }) {
   return (
     <Dialog
@@ -29,6 +30,7 @@ function AlertDialog({
         <DialogContentText id="alert-dialog-description">{description}</DialogContentText>
       </DialogContent>
       <DialogActions>
+        {showClose && <Button onClick={handleClose}>{"Close"}</Button>}
         <Button disabled={currentStatus === false} onClick={() => handleAction(false)}>{disAgreeButtonText}</Button>
         <Button disabled={currentStatus === true} onClick={() => handleAction(true)} autoFocus>
           {agreeButtonText}
@@ -46,7 +48,8 @@ AlertDialog.propTypes = {
   openDialog: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   handleAction: PropTypes.func.isRequired,
-  currentStatus: PropTypes.func.isRequired
+  currentStatus: PropTypes.func.isRequired,
+  showClose: PropTypes.bool
 };
 
 export default AlertDialog;
